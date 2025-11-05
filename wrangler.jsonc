@@ -13,7 +13,15 @@
 	},
 	"observability": {
 		"enabled": true
-	}
+	},
+	"d1_databases": [
+		{
+			"binding": "db",
+			"database_name": "hono-better-auth-db",
+			"database_id": "453e8bca-14aa-4311-876b-9d5f7f093dcd",
+			"migrations_dir": "./src/db/migrations"
+		}
+	]
 	/**
 	 * Smart Placement
 	 * Docs: https://developers.cloudflare.com/workers/configuration/smart-placement/#smart-placement

@@ -4,12 +4,19 @@
 	"scripts": {
 		"dev": "wrangler dev",
 		"deploy": "wrangler deploy --minify",
-		"cf-typegen": "wrangler types --env-interface CloudflareBindings"
+		"cf-typegen": "wrangler types --env-interface CloudflareBindings",
+		"db-generate": "npx @better-auth/cli generate --yes --output ./src/db/schema/auth-schema.ts && npx drizzle-kit generate",
+		"db-update": "npx wrangler d1 migrations apply hono-better-auth-db",
+		"db-update-remote": "npx wrangler d1 migrations apply hono-better-auth-db --remote",
+		"db-run": "npx wrangler d1 execute hono-better-auth-db --file"
 	},
 	"dependencies": {
+		"better-auth": "^1.3.34",
+		"drizzle-orm": "^0.44.6",
 		"hono": "^4.10.1"
 	},
 	"devDependencies": {
+		"drizzle-kit": "^0.31.5",
 		"wrangler": "^4.43.0"
 	}
 }
